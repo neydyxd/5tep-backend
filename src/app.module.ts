@@ -5,6 +5,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Session } from './auth/session.entity';
+import { HealthController } from './health/health.controller';
 import { ProfileModule } from './profile/profile.module';
 import { Profile } from './users/profile.entity';
 import { User } from './users/user.entity';
@@ -32,6 +33,7 @@ import { User } from './users/user.entity';
     AuthModule,
     ProfileModule,
   ],
+  controllers: [HealthController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
 export class AppModule {}

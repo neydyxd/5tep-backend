@@ -48,6 +48,11 @@ describe('Account flow (e2e)', () => {
     await app?.close();
   });
 
+  it('reports health while the database answers', async () => {
+    const response = await request(server).get('/health').expect(200);
+    expect(response.body).toEqual({ status: 'ok' });
+  });
+
   it('registers an account and returns a default profile', async () => {
     const response = await request(server)
       .post('/auth/register')

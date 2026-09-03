@@ -13,6 +13,7 @@ export default new DataSource({
   password: process.env.DB_PASSWORD ?? 'fivestep',
   database: process.env.DB_NAME ?? 'fivestep',
   entities: [User, Profile, Session],
-  migrations: ['src/database/migrations/*.ts'],
+  // Works both from sources and from the compiled bundle inside the container.
+  migrations: [`${__dirname}/migrations/*.{ts,js}`],
   synchronize: false,
 });

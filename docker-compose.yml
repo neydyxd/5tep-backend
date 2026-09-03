@@ -17,5 +17,32 @@ services:
       timeout: 3s
       retries: 10
 
+  api:
+    build: .
+    container_name: fivestep-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # Inside the network the database is reached by service name, not by localhost.
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-fivestep}
+      DB_PASSWORD: ${DB_PASSWORD:-fivestep}
+      DB_NAME: ${DB_NAME:-fivestep}
+      SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
+      SESSION_RENEW_AFTER_DAYS: ${SESSION_RENEW_AFTER_DAYS:-5}
+    ports:
+      - '${PORT:-3000}:3000'
+    healthcheck:
+      test: ['CMD-SHELL', 'node -e "fetch(\"http://127.0.0.1:3000/health\").then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
 volumes:
   postgres-data:
