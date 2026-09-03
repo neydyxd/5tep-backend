@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+dist/
+coverage/
+*.log
+
+# Local configuration with credentials
+.env
+
+# Working files that are not part of the delivery
+.figma-state.json

@@ -1,0 +1,14 @@
+{
+  "navigation_model": "tab-bar",
+  "home_archetype": "radial-progress",
+  "blue_hex": "#1B5CF5",
+  "blue_family": "azure",
+  "accent_family": "mint",
+  "type_pairing": "manrope/jetbrains",
+  "shape_language": "pill-24",
+  "density": "airy",
+  "onboarding_pattern": "quiz",
+  "ios_stack": "swiftui",
+  "icon_motif": "letterform",
+  "screenshot_layout": "device-frame-caption-top"
+}

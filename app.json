@@ -1,0 +1,623 @@
+{
+  "slug": "5tep",
+  "display_name": {
+    "en": "5tep",
+    "ru": "5tep"
+  },
+  "bundle_id": "ru.fivestep.walk",
+  "team_id": "TEAMID-PENDING",
+  "tagline": {
+    "en": "Five steps to close the day",
+    "ru": "Пять шагов, чтобы закрыть день"
+  },
+  "axes": {
+    "navigation_model": "tab-bar",
+    "home_archetype": "radial-progress",
+    "blue_hex": "#1B5CF5",
+    "blue_family": "azure",
+    "accent_family": "mint",
+    "type_pairing": "manrope/jetbrains",
+    "shape_language": "pill-24",
+    "density": "airy",
+    "onboarding_pattern": "quiz",
+    "ios_stack": "swiftui",
+    "icon_motif": "letterform",
+    "screenshot_layout": "device-frame-caption-top"
+  },
+  "screens": [
+    {
+      "id": "onboarding",
+      "name": {
+        "en": "Set your five",
+        "ru": "Настрой свои пять"
+      },
+      "role": "onboarding",
+      "states": [
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "квиз из 4 вопросов: дневная цель шагов, рост, вес, удобное время прогулки; на выходе — дневная цель, разбитая на 5 отрезков"
+    },
+    {
+      "id": "auth",
+      "name": {
+        "en": "Sign in",
+        "ru": "Вход"
+      },
+      "role": "auth",
+      "states": [
+        "error",
+        "loading"
+      ],
+      "release": "1.0.0",
+      "purpose": "вход и регистрация по логину и паролю на собственном бэкенде, токен сессии в Keychain; «Продолжить без аккаунта» с локальным профилем (App Review 5.1.1(v)); ошибки валидации и ответы 401/409/429 — отдельные состояния"
+    },
+    {
+      "id": "access",
+      "name": {
+        "en": "What 5tep needs",
+        "ru": "Что нужно 5tep"
+      },
+      "role": "feature",
+      "states": [
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "экран объяснения доступов: под каждое разрешение — что оно даёт и что перестанет работать без него; запрос вызывается кнопкой в момент пользы, отказ не ломает сценарий"
+    },
+    {
+      "id": "home",
+      "name": {
+        "en": "Today",
+        "ru": "Сегодня"
+      },
+      "role": "home",
+      "states": [
+        "empty",
+        "loading",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "кольцо из 5 сегментов по 2000 шагов, счётчик шагов, серия дней, кнопка «Начать прогулку»"
+    },
+    {
+      "id": "walk-live",
+      "name": {
+        "en": "Walk",
+        "ru": "Прогулка"
+      },
+      "role": "feature",
+      "states": [
+        "loading",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "активная прогулка: карта с рисующимся треком, дистанция, темп, время, кнопка фото-чекпоинта; в 3.0 добавляется панель аудиосопровождения"
+    },
+    {
+      "id": "walk-summary",
+      "name": {
+        "en": "Walk summary",
+        "ru": "Итог прогулки"
+      },
+      "role": "detail",
+      "states": [
+        "loading",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "итог: карта маршрута, дистанция и темп, лента фото-чекпоинтов, сколько сегментов кольца закрыто, кнопка сохранения карточки в галерею"
+    },
+    {
+      "id": "routes",
+      "name": {
+        "en": "Routes",
+        "ru": "Маршруты"
+      },
+      "role": "list",
+      "states": [
+        "empty",
+        "loading",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "история прогулок с миниатюрами маршрутов и фильтром по длине; переход в итог прогулки"
+    },
+    {
+      "id": "plan",
+      "name": {
+        "en": "Plan",
+        "ru": "План"
+      },
+      "role": "feature",
+      "states": [
+        "empty",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "план прогулок на неделю: слоты по дням, подбор свободного времени и добавление прогулки в системный календарь"
+    },
+    {
+      "id": "profile",
+      "name": {
+        "en": "Profile",
+        "ru": "Профиль"
+      },
+      "role": "profile",
+      "states": [
+        "empty",
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "цель, серия дней, суммарная дистанция, достижения по закрытым сегментам; в 4.0 — блок персональных рекомендаций маршрутов"
+    },
+    {
+      "id": "settings",
+      "name": {
+        "en": "Settings",
+        "ru": "Настройки"
+      },
+      "role": "settings",
+      "states": [
+        "error"
+      ],
+      "release": "1.0.0",
+      "purpose": "единицы измерения, язык, управление доступами, автозапись прогулок, удаление данных"
+    },
+    {
+      "id": "stats",
+      "name": {
+        "en": "Trends",
+        "ru": "Динамика"
+      },
+      "role": "feature",
+      "states": [
+        "empty",
+        "loading"
+      ],
+      "release": "2.0.0",
+      "purpose": "динамика за неделю и месяц: шаги по дням, средний темп, доля закрытых сегментов; данные пересчитываются в фоне до открытия"
+    },
+    {
+      "id": "journal",
+      "name": {
+        "en": "Journal",
+        "ru": "Дневник"
+      },
+      "role": "feature",
+      "states": [
+        "empty",
+        "error"
+      ],
+      "release": "2.0.0",
+      "purpose": "дневник самочувствия: голосовая заметка после прогулки с расшифровкой в текст и поиском; в 3.0 закрывается биометрией"
+    },
+    {
+      "id": "friends",
+      "name": {
+        "en": "Together",
+        "ru": "Вместе"
+      },
+      "role": "feature",
+      "states": [
+        "empty",
+        "loading",
+        "error"
+      ],
+      "release": "4.0.0",
+      "purpose": "совместные челленджи: приглашение знакомого, общий прогресс, голосовая связь во время совместной прогулки"
+    },
+    {
+      "id": "devices",
+      "name": {
+        "en": "Sensors",
+        "ru": "Датчики"
+      },
+      "role": "feature",
+      "states": [
+        "empty",
+        "loading",
+        "error"
+      ],
+      "release": "4.0.0",
+      "purpose": "поиск и подключение внешнего пульсометра или шагомера, состояние связи и заряда"
+    }
+  ],
+  "capabilities": [
+    {
+      "key": "NSLocationWhenInUseUsageDescription",
+      "feature": "запись маршрута прогулки на карте с расчётом дистанции и темпа",
+      "screen": "walk-live",
+      "release": "1.0.0",
+      "usage_description": {
+        "en": "5tep uses your location while you walk to draw the route on the map and calculate distance and pace. Tracking runs only during an active walk.",
+        "ru": "5tep использует геопозицию во время прогулки, чтобы нарисовать маршрут на карте и посчитать дистанцию и темп. Запись идёт только во время активной прогулки."
+      },
+      "api_evidence": [
+        "CLLocationManager",
+        "requestWhenInUseAuthorization",
+        "startUpdatingLocation"
+      ],
+      "review_path": "Сегодня → Начать прогулку → разрешить доступ к геопозиции → трек рисуется на карте, дистанция и темп обновляются"
+    },
+    {
+      "key": "NSCameraUsageDescription",
+      "feature": "фото-чекпоинт на маршруте: снимок привязывается к точке трека и попадает в итог прогулки",
+      "screen": "walk-live",
+      "release": "1.0.0",
+      "usage_description": {
+        "en": "5tep uses the camera so you can attach a photo checkpoint to the spot you are passing. The photo is pinned to that point of your route.",
+        "ru": "5tep использует камеру, чтобы прикрепить фото-чекпоинт к месту, где вы сейчас идёте. Снимок привязывается к этой точке маршрута."
+      },
+      "api_evidence": [
+        "AVCaptureSession",
+        "AVCaptureDevice"
+      ],
+      "review_path": "Сегодня → Начать прогулку → кнопка с камерой → снять кадр → метка со снимком появляется на карте маршрута"
+    },
+    {
+      "key": "NSPhotoLibraryAddUsageDescription",
+      "feature": "сохранение карточки итога прогулки — карта маршрута, статистика и фото-чекпоинты — в галерею",
+      "screen": "walk-summary",
+      "release": "1.0.0",
+      "usage_description": {
+        "en": "5tep saves the summary card of your walk — route map, distance, pace and your photo checkpoints — to your photo library so you can keep or share it.",
+        "ru": "5tep сохраняет карточку итога прогулки — карту маршрута, дистанцию, темп и ваши фото-чекпоинты — в галерею, чтобы её можно было оставить себе или отправить."
+      },
+      "api_evidence": [
+        "UIImageWriteToSavedPhotosAlbum",
+        "PHPhotoLibrary"
+      ],
+      "review_path": "Маршруты → любая прогулка → Сохранить карточку → изображение появляется в приложении Фото"
+    },
+    {
+      "key": "NSCalendarsUsageDescription",
+      "feature": "запланированная прогулка добавляется в системный календарь с учётом уже занятых слотов",
+      "screen": "plan",
+      "release": "1.0.0",
+      "usage_description": {
+        "en": "5tep reads your calendar to suggest free time for a walk and adds the walk you scheduled as a calendar event so it does not clash with your meetings.",
+        "ru": "5tep читает календарь, чтобы предложить свободное время для прогулки, и добавляет запланированную прогулку событием — так она не пересечётся со встречами."
+      },
+      "api_evidence": [
+        "EKEventStore",
+        "EKEvent"
+      ],
+      "review_path": "План → выбрать день → Запланировать прогулку → предложенный свободный слот → Добавить в календарь → событие видно в приложении Календарь"
+    },
+    {
+      "key": "NSMicrophoneUsageDescription",
+      "feature": "голосовая заметка о самочувствии сразу после прогулки, без набора текста",
+      "screen": "journal",
+      "release": "2.0.0",
+      "usage_description": {
+        "en": "5tep uses the microphone to record a short voice note about how the walk felt, so you can log it without typing.",
+        "ru": "5tep использует микрофон, чтобы записать короткую голосовую заметку о том, как прошла прогулка, — без набора текста."
+      },
+      "api_evidence": [
+        "AVAudioRecorder",
+        "AVAudioSession"
+      ],
+      "review_path": "Дневник → Записать заметку → удерживать кнопку записи → заметка появляется в списке"
+    },
+    {
+      "key": "NSSpeechRecognitionUsageDescription",
+      "feature": "расшифровка голосовой заметки в текст, чтобы дневник можно было искать словами",
+      "screen": "journal",
+      "release": "2.0.0",
+      "usage_description": {
+        "en": "5tep transcribes your voice notes into text so the journal becomes searchable by words you said.",
+        "ru": "5tep расшифровывает голосовые заметки в текст, чтобы по дневнику можно было искать сказанными словами."
+      },
+      "api_evidence": [
+        "SFSpeechRecognizer",
+        "SFSpeechURLRecognitionRequest"
+      ],
+      "review_path": "Дневник → запись заметки → Расшифровать → текст под заметкой → поиск по слову из заметки"
+    },
+    {
+      "key": "fetch",
+      "feature": "недельная динамика пересчитывается в фоне, чтобы экран открывался без спиннера",
+      "screen": "stats",
+      "release": "2.0.0",
+      "usage_description": {
+        "en": "5tep refreshes your weekly trends in the background so the screen opens with up-to-date numbers.",
+        "ru": "5tep обновляет недельную динамику в фоне, чтобы экран открывался с актуальными цифрами."
+      },
+      "api_evidence": [
+        "BGTaskScheduler",
+        "BGAppRefreshTask"
+      ],
+      "review_path": "Динамика → открыть после ночи → цифры за прошедший день уже посчитаны без загрузки"
+    },
+    {
+      "key": "NSFaceIDUsageDescription",
+      "feature": "биометрический замок на дневник самочувствия",
+      "screen": "journal",
+      "release": "3.0.0",
+      "usage_description": {
+        "en": "5tep uses Face ID to unlock your journal, so notes about your wellbeing stay private if someone else picks up the phone.",
+        "ru": "5tep использует Face ID для входа в дневник, чтобы заметки о самочувствии остались приватными, если телефон возьмёт кто-то другой."
+      },
+      "api_evidence": [
+        "LAContext",
+        "evaluatePolicy"
+      ],
+      "review_path": "Настройки → Замок на дневник → включить → Дневник → запрос Face ID"
+    },
+    {
+      "key": "audio",
+      "feature": "голосовые подсказки по темпу и дистанции продолжаются при заблокированном экране и управляются из Control Center",
+      "screen": "walk-live",
+      "release": "3.0.0",
+      "usage_description": {
+        "en": "5tep keeps pace and distance cues playing when the screen is locked, so you can follow them with the phone in your pocket.",
+        "ru": "5tep продолжает произносить подсказки по темпу и дистанции при заблокированном экране, чтобы слушать их с телефоном в кармане."
+      },
+      "api_evidence": [
+        "AVAudioSession",
+        "MPNowPlayingInfoCenter",
+        "AVPlayer"
+      ],
+      "review_path": "Прогулка → Включить голосовые подсказки → заблокировать экран → звук идёт, управление доступно из Control Center"
+    },
+    {
+      "key": "NSLocationAlwaysAndWhenInUseUsageDescription",
+      "feature": "автозапись прогулки: приложение само начинает трек, когда вы вышли из дома и пошли",
+      "screen": "settings",
+      "release": "3.0.0",
+      "usage_description": {
+        "en": "With background location 5tep starts recording a walk on its own when you leave home, so a walk is not lost because you forgot to press start.",
+        "ru": "С фоновой геопозицией 5tep сам начинает запись прогулки, когда вы вышли из дома, — прогулка не потеряется из-за того, что вы забыли нажать «Старт»."
+      },
+      "api_evidence": [
+        "requestAlwaysAuthorization",
+        "startMonitoringSignificantLocationChanges"
+      ],
+      "review_path": "Настройки → Автозапись прогулок → включить → выйти из зоны дома → прогулка появляется в Маршрутах без нажатия старта"
+    },
+    {
+      "key": "NSContactsUsageDescription",
+      "feature": "приглашение знакомого из адресной книги в совместный челлендж по шагам",
+      "screen": "friends",
+      "release": "4.0.0",
+      "usage_description": {
+        "en": "5tep opens your contacts so you can pick someone you know and invite them to a shared step challenge.",
+        "ru": "5tep открывает контакты, чтобы вы выбрали знакомого и пригласили его в совместный челлендж по шагам."
+      },
+      "api_evidence": [
+        "CNContactStore",
+        "CNContactPickerViewController"
+      ],
+      "review_path": "Вместе → Создать челлендж → Пригласить → выбрать контакт → приглашение отправлено"
+    },
+    {
+      "key": "remote-notification",
+      "feature": "прогресс партнёра по челленджу подтягивается по пушу и обновляется до открытия приложения",
+      "screen": "friends",
+      "release": "4.0.0",
+      "usage_description": {
+        "en": "5tep receives push updates about your challenge partner's progress and refreshes the shared score in the background.",
+        "ru": "5tep получает пуш-обновления о прогрессе партнёра по челленджу и обновляет общий счёт в фоне."
+      },
+      "api_evidence": [
+        "UNUserNotificationCenter",
+        "registerForRemoteNotifications"
+      ],
+      "review_path": "Настройки → «Проверка связи» → «Прислать уведомление» → пуш приходит на устройство и открывает экран «Вместе». Полный сценарий: Вместе → активный челлендж → партнёр прошёл шаги → уведомление и обновлённый счёт",
+      "solo_check": "«Прислать уведомление» в разделе «Проверка связи»: бэкенд отправляет пуш на это же устройство и открывает соответствующий экран"
+    },
+    {
+      "key": "voip",
+      "feature": "голосовая связь с партнёром во время совместной прогулки с системным экраном вызова. Связь проверяется вызовом на себя: «Позвонить мне» — бэкенд присылает VoIP-пуш обратно на это же устройство и возвращает звук эхом, поэтому функция проходится без второго участника",
+      "screen": "friends",
+      "release": "4.0.0",
+      "usage_description": {
+        "en": "5tep delivers incoming voice calls from your walking partner as system calls, so you can talk while you both walk.",
+        "ru": "5tep показывает входящий голосовой вызов от партнёра по прогулке системным экраном звонка, чтобы говорить прямо во время прогулки."
+      },
+      "api_evidence": [
+        "PKPushRegistry",
+        "CXProvider",
+        "AVAudioEngine",
+        "AVAudioSession"
+      ],
+      "review_path": "Настройки → «Проверка связи» → «Позвонить мне» → через 10 секунд системный экран входящего вызова → ответить → слышно эхо своего голоса. Партнёр и второе устройство не нужны. Полный сценарий: Вместе → совместная прогулка → Позвонить партнёру",
+      "solo_check": "«Позвонить мне» в разделе «Проверка связи»: бэкенд присылает VoIP-пуш обратно на это же устройство через 10 секунд, поднимается системный экран входящего вызова, после ответа звук возвращается эхом с задержкой ~400 мс. Второй участник и второе устройство не нужны"
+    },
+    {
+      "key": "NSBluetoothAlwaysUsageDescription",
+      "feature": "подключение внешнего пульсометра или шагомера как источника данных прогулки",
+      "screen": "devices",
+      "release": "4.0.0",
+      "usage_description": {
+        "en": "5tep connects over Bluetooth to your heart rate monitor or step sensor to add its readings to the walk.",
+        "ru": "5tep подключается по Bluetooth к пульсометру или шагомеру, чтобы добавить их показания к прогулке."
+      },
+      "api_evidence": [
+        "CBCentralManager",
+        "CBPeripheral"
+      ],
+      "review_path": "Датчики → Найти устройство → системный запрос Bluetooth → список устройств рядом, ниже «Ввести пульс вручную» → прогулка показывает источник пульса (проходится без физического датчика)",
+      "solo_check": "сценарий проходится без физического устройства: то, что автоматизирует метка или датчик, доступно вручную на том же экране"
+    },
+    {
+      "key": "NSUserTrackingUsageDescription",
+      "feature": "измерение эффективности продвижения приложения собственной атрибуцией: с согласия рекламный идентификатор уходит на наш бэкенд, чтобы связать установку с кампанией, по которой пользователь пришёл",
+      "screen": "access",
+      "release": "4.0.0",
+      "usage_description": {
+        "en": "5tep links your install to the ad campaign you came from, so we can tell which promotion works. That is the only use of the identifier; your walks and routes are never shared.",
+        "ru": "5tep свяжет вашу установку с рекламной кампанией, по которой вы пришли, чтобы мы понимали, какое продвижение работает. Это единственное, для чего используется идентификатор; прогулки и маршруты не передаются."
+      },
+      "api_evidence": [
+        "ATTrackingManager",
+        "requestTrackingAuthorization"
+      ],
+      "review_path": "Доступы → «Измерение продвижения» → «Разрешить» → системный запрос трекинга"
+    }
+  ],
+  "releases": [
+    {
+      "version": "1.0.0",
+      "size_budget_mb": 50,
+      "theme": {
+        "en": "Walk, record, save",
+        "ru": "Прогулка, маршрут, карточка"
+      },
+      "scope": "MVP: кольцо из 5 сегментов, запись маршрута, фото-чекпоинты, карточка итога в галерею, план прогулок в календаре",
+      "bundle_payload": {
+        "target_mb": 45,
+        "items": [
+          {
+            "asset": "код всех экранов, иконка и Launch Screen",
+            "mb": 25
+          },
+          {
+            "asset": "шрифты Manrope и JetBrains Mono, вариативные, latin + cyrillic",
+            "mb": 4,
+            "license": "SIL OFL"
+          },
+          {
+            "asset": "набор иконок Lucide, подмножество под экраны релиза",
+            "mb": 1,
+            "license": "ISC"
+          },
+          {
+            "asset": "MapLibre GL Native — движок карты, отрисовка трека и офлайн-тайлов",
+            "mb": 8,
+            "license": "BSD-2-Clause"
+          },
+          {
+            "asset": "офлайн-тайлы OSM: район запуска, z8-14 — маршрут пишется и рисуется без сети",
+            "mb": 7,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          }
+        ]
+      }
+    },
+    {
+      "version": "2.0.0",
+      "size_budget_mb": 100,
+      "theme": {
+        "en": "How it felt",
+        "ru": "Как это было"
+      },
+      "scope": "дневник самочувствия с голосовыми заметками и расшифровкой, экран динамики с фоновым пересчётом",
+      "bundle_payload": {
+        "target_mb": 95,
+        "items": [
+          {
+            "asset": "офлайн-тайлы OSM: ещё два города, z8-14",
+            "mb": 35,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          },
+          {
+            "asset": "библиотека готовых пешеходных маршрутов: треки и превью по покрытым городам",
+            "mb": 15,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          }
+        ]
+      }
+    },
+    {
+      "version": "3.0.0",
+      "size_budget_mb": 300,
+      "theme": {
+        "en": "Hands-free walking",
+        "ru": "Прогулка без телефона в руке"
+      },
+      "scope": "офлайн-карты городов и профиль высот, голосовые подсказки по темпу при заблокированном экране, автозапись прогулки по фоновой геопозиции, биометрический замок на дневник",
+      "bundle_payload": {
+        "target_mb": 290,
+        "items": [
+          {
+            "asset": "офлайн-тайлы OSM: расширение до восьми городов, z8-15",
+            "mb": 90,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          },
+          {
+            "asset": "данные рельефа по покрытым городам — профиль высот, набор высоты, оценка сложности",
+            "mb": 105,
+            "license": "Copernicus DEM GLO-30 «Full, Free & Open» (Article 4: распространение и адаптация разрешены, Article 5: бесплатно) — обязательна дословная формулировка Article 6(a): «© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.» Либо SRTM (NASA, public domain). WorldDEM-10 из лицензии исключён — не используется"
+          }
+        ]
+      }
+    },
+    {
+      "version": "4.0.0",
+      "size_budget_mb": 500,
+      "theme": {
+        "en": "Together",
+        "ru": "Вместе"
+      },
+      "scope": "совместные челленджи, приглашения из контактов, голосовая связь на прогулке, внешние датчики, персональные рекомендации",
+      "bundle_payload": {
+        "target_mb": 480,
+        "items": [
+          {
+            "asset": "офлайн-тайлы OSM: расширение до четырнадцати городов, z8-15",
+            "mb": 110,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          },
+          {
+            "asset": "данные рельефа по новым городам",
+            "mb": 60,
+            "license": "Copernicus DEM GLO-30 «Full, Free & Open» (Article 4: распространение и адаптация разрешены, Article 5: бесплатно) — обязательна дословная формулировка Article 6(a): «© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.» Либо SRTM (NASA, public domain). WorldDEM-10 из лицензии исключён — не используется"
+          },
+          {
+            "asset": "справочник объектов вдоль маршрутов: фонтанчики, скамейки, входы в парки, остановки",
+            "mb": 20,
+            "license": "ODbL: тайлы — Produced Work, код приложения лицензией не затронут; attribution на экране карты и на экране сведений об источниках, исходные данные не менялись — источник openstreetmap.org"
+          }
+        ]
+      }
+    }
+  ],
+  "constraints": {
+    "external_integrations": "запрещены любые внешние интеграции с API-ключом, включая сервисы с бесплатным тарифом — только нативные API iOS, встраиваемый опенсорс без сервисов и собственный бэкенд",
+    "paid_third_party_services": "запрещены — партия из 15 приложений умножает любую подписку",
+    "auth": "логин + пароль на собственном бэкенде (Argon2id, токен в Keychain), плюс режим без аккаунта",
+    "no_sms": "верификация по телефону не используется",
+    "maps": "MapLibre (BSD) + собственные векторные тайлы OpenStreetMap (ODbL), офлайн в бандле",
+    "push": "APNs напрямую со своего бэкенда",
+    "speech": "SFSpeechRecognizer на устройстве",
+    "steps_source": "CoreMotion CMPedometer, без HealthKit",
+    "fonts": "Manrope, JetBrains Mono (SIL OFL)",
+    "icons": "Lucide (ISC)",
+    "voip": "PushKit + CallKit, звук релеем через собственный бэкенд (AVAudioEngine + WebSocket, AVAudioSession .voiceChat). Без WebRTC и без TURN-сервера. Эндпоинт эхо-вызова на том же бэкенде возвращает аудиопоток обратно с задержкой ~400 мс: путь PushKit → CallKit → звук проверяется одним человеком с одним устройством",
+    "bluetooth": "CoreBluetooth; экран «Датчики» рабочий без физического датчика — пульс вводится вручную, сценарий проходится ревьюером без железа",
+    "themes": "светлая и тёмная темы; тёмная — самостоятельный визуальный вариант, не инверсия. Семантические токены неизменны, у коллекции цветов два режима; в iOS — Asset Catalog с вариантами Any/Dark, тема системная",
+    "map_attribution": "«© OpenStreetMap contributors» со ссылкой на openstreetmap.org/copyright на экране карты; экран сведений об источниках несёт дословную формулировку Copernicus DEM и указание, что данные OSM не изменялись. Тексты лицензий — в delivery/licenses/",
+    "bundled_data": "офлайн-тайлы, рельеф, готовые маршруты и справочник объектов лежат в Resources, не в asset catalog и не в On-Demand Resources",
+    "review_selfcheck": "каждая капабилити, требующая второго участника или внешнего устройства, имеет путь проверки в одиночку: «Проверка связи» в настройках — вызов на себя и уведомление себе; контекст Bluetooth создаётся вручную",
+    "tracking": "ATT запрашивается под собственную атрибуцию установок на нашем бэкенде — это advertising measurement, для которого разрешение и предназначено. Рекламы в приложении нет, сторонних SDK и брокеров данных нет. App Privacy Details заполняются как Data Used to Track You, иначе промпт противоречит nutrition label"
+  },
+  "functional_spec": "functional-spec.md",
+  "bundle_size_strategy": {
+    "goal": "вес релиза — целевой показатель ТЗ: 45 / 95 / 290 / 480 МБ при лимитах 50 / 100 / 300 / 500. Обоснование для заказчика — docs/size-growth.md",
+    "feature": "объём даёт офлайн-режим прогулки: карта, рельеф, маршруты и объекты местности лежат в приложении, потому что прогулка идёт там, где связи нет. Код всех экранов и разрешений — около 25 МБ и от релиза к релизу почти не меняется",
+    "regulator": "плавный регулятор — офлайн-покрытие: число городов, глубина зума тайлов и детализация рельефа задаются при подготовке данных, поэтому цель релиза достигается точно, без ассетов, не используемых в приложении",
+    "headroom": "целимся в 85-95% лимита: точный размер загрузки измеряется только на подписанной сборке, запас закрывает расхождение",
+    "no_on_demand_resources": "ODR не применяется: он выносит данные из первичной загрузки и обнуляет учтённый вес. Тайлы, рельеф и маршруты лежат в Resources",
+    "measurement": "вес сверяется по App Store Connect (Xcode Organizer, App Store File Sizes) на подписанной сборке, не по размеру каталога сборки: тайлы и рельеф уже сжаты и в IPA не уменьшаются",
+    "data_pipeline": "тайлы, маршруты и справочник объектов готовятся нашим конвейером (planetiler, Apache 2.0) из открытых дампов OpenStreetMap, рельеф — из Copernicus DEM GLO-30 или SRTM. Ключа и стороннего сервера нет; регистрация, если требуется источником, происходит однократно при подготовке данных и в приложение не попадает",
+    "forbidden_models": "AGPL в бандл не попадает: Ultralytics YOLOv5 и YOLOv8 несовместимы с передачей закрытого продукта заказчику"
+  },
+  "required_plist_keys": [
+    {
+      "key": "NSMotionUsageDescription",
+      "reason": "CMPedometer без этого ключа не отдаёт шаги: iOS отклоняет запрос к счётчику движения. Ключ не входит в перечень ТЗ и не заменяет ни одну из 15 капабилити — он технически обязателен для главного экрана.",
+      "screen": "home",
+      "en": "5tep reads the step counter to show your progress towards the daily goal.",
+      "ru": "5tep читает счётчик шагов, чтобы показывать прогресс к дневной цели."
+    },
+    {
+      "key": "NSCalendarsFullAccessUsageDescription",
+      "reason": "С iOS 17 чтение занятости и создание события требуют ключа полного доступа; NSCalendarsUsageDescription из перечня ТЗ остаётся для iOS 16. Текст совпадает дословно, разрешение то же самое.",
+      "screen": "plan",
+      "en": "5tep reads your calendar to suggest free time for a walk and adds the walk you scheduled as a calendar event so it does not clash with your meetings.",
+      "ru": "5tep читает календарь, чтобы предложить свободное время для прогулки, и добавляет запланированную прогулку событием — так она не пересечётся со встречами."
+    }
+  ]
+}
