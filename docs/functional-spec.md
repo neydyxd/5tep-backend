@@ -265,7 +265,7 @@ PlannedWalk: id, date, startTime, durationMin, title, calendarEventId?
 |---|---|---|
 | Шаги, дистанция | `CoreMotion` / `CMPedometer` | нет |
 | Геопозиция и трек | `CoreLocation` / `CLLocationManager` | нет |
-| Карта и маршрут | `MapLibre GL Native` (BSD), офлайн-тайлы OpenStreetMap в бандле | нет |
+| Карта и маршрут | `MapKit`: подложка системная, трек и чекпоинты — свои оверлеи | нет |
 | Камера | `AVFoundation` / `AVCaptureSession` | нет |
 | Сохранение в галерею | `Photos` / `UIImageWriteToSavedPhotosAlbum` | нет |
 | Календарь | `EventKit` / `EKEventStore` | нет |
@@ -274,10 +274,10 @@ PlannedWalk: id, date, startTime, durationMin, title, calendarEventId?
 | Тема оформления | `UITraitCollection` / SwiftUI `@Environment(\.colorScheme)`, цвета в Asset Catalog с вариантами Any/Dark | нет |
 | Аккаунт и синхронизация | собственный бэкенд | только хостинг |
 
-Единственная сторонняя зависимость — `MapLibre GL Native` (BSD, опенсорс, встраивается в бандл,
-никаких сервисов и подписок). Платных SDK нет. Шрифты — Manrope и JetBrains Mono (SIL OFL),
-иконки — Lucide (ISC), картографические данные — OpenStreetMap (ODbL) с атрибуцией на экране
-«Источники» в настройках.
+Сторонних зависимостей нет вовсе: карту рисует системный `MapKit`, остальное — нативные API iOS
+и собственный бэкенд. Платных SDK нет. Шрифты — Manrope и JetBrains Mono (SIL OFL), иконки —
+Lucide (ISC), данные о маршрутах — OpenStreetMap (ODbL), рельеф — SRTM (public domain), модели
+распознавания — из галереи Apple; атрибуция на экране «Источники» в настройках.
 
 Ни одной внешней интеграции с API-ключом нет ни в одном релизе: всё, что не отдаёт нативный
 API iOS, делает собственный бэкенд. Это касается и двух капабилити релиза 4.0, где такая
