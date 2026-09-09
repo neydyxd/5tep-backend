@@ -263,7 +263,7 @@ iOS: цвета кладутся в Asset Catalog с вариантами Any/Da
   которого ATT и предназначен. Требуется подтверждение, что промо-кампании приложения
   планируются: без них разрешение не на что опереть, и ревьюер задаст этот вопрос.
   App Privacy Details при этом заполняются как «Data Used to Track You».
-- `bundle_id` — сейчас `ru.fivestep.walk`, требует согласования.
+- `bundle_id` — `com.graham.5tep`, подтверждён заказчиком.
 - `team_id` — `TEAMID-PENDING`, нужен реальный от заказчика для сборки и подписи.
 - Источник шагов: CoreMotion (`CMPedometer`) или HealthKit. HealthKit тянет за собой
   собственные ключи `NSHealthShareUsageDescription` сверх перечня ТЗ — по умолчанию берём
