@@ -1,0 +1,264 @@
+<!-- 5tep · privacy policy. Paste into a T123 "HTML code" block on a dedicated Tilda page.
+     The page address goes to App Store Connect (Privacy Policy URL) and to
+     PRIVACY_POLICY_URL in the iOS build configuration. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.pp {
+  --pp-ink: #173D32;
+  --pp-body: #3F4A42;
+  --pp-muted: #5F6B61;
+  --pp-cream: #FFFDF8;
+  --pp-amber: #D4934C;
+  --pp-line: rgba(23, 61, 50, 0.14);
+
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 24px 88px;
+  background: var(--pp-cream);
+  font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--pp-body);
+  -webkit-font-smoothing: antialiased;
+}
+.pp h1, .pp h2, .pp h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  color: var(--pp-ink);
+}
+.pp h1 { font-size: 52px; line-height: 1.08; letter-spacing: -1.6px; margin: 0 0 14px; }
+.pp h2 { font-size: 34px; line-height: 1.15; letter-spacing: -0.9px; margin: 0 0 24px; }
+.pp h3 { font-size: 23px; line-height: 1.3; letter-spacing: -0.3px; margin: 40px 0 10px; }
+.pp p { margin: 0 0 18px; }
+.pp ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
+.pp li { position: relative; margin: 0 0 10px; padding-left: 26px; }
+.pp li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pp-amber);
+}
+.pp a { color: var(--pp-ink); text-decoration: underline; text-underline-offset: 3px; }
+.pp a:hover { color: var(--pp-amber); }
+
+.pp-lede { font-size: 16px; color: var(--pp-muted); margin: 0 0 34px; }
+.pp-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 56px; }
+.pp-nav a {
+  display: inline-block;
+  padding: 11px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--pp-line);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--pp-ink);
+}
+.pp-nav a:hover { border-color: var(--pp-ink); color: var(--pp-ink); }
+.pp-nav a.pp-on { background: var(--pp-ink); border-color: var(--pp-ink); color: var(--pp-cream); }
+
+.pp-rule { height: 1px; border: 0; background: var(--pp-line); margin: 72px 0 64px; }
+.pp-eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--pp-amber);
+  margin: 0 0 10px;
+}
+.pp-card {
+  margin-top: 36px;
+  padding: 22px 26px;
+  background: rgba(23, 61, 50, 0.05);
+  border-radius: 18px;
+  font-size: 16px;
+  color: var(--pp-ink);
+}
+
+@media (max-width: 640px) {
+  .pp { padding: 40px 18px 64px; font-size: 16px; }
+  .pp h1 { font-size: 36px; letter-spacing: -1px; }
+  .pp h2 { font-size: 27px; letter-spacing: -0.6px; }
+  .pp h3 { font-size: 20px; }
+}
+</style>
+
+<div class="pp">
+  <h1>Privacy Policy</h1>
+  <p class="pp-lede">5tep mobile app · Effective date: 22 September 2026 · Политика конфиденциальности приложения 5tep</p>
+
+  <div class="pp-nav">
+    <a class="pp-on" href="#pp-en">English</a>
+    <a href="#pp-ru">Русский</a>
+  </div>
+
+  <div id="pp-en">
+    <span class="pp-eyebrow">English</span>
+    <h2>How 5tep handles your data</h2>
+
+    <p>The data controller is Graham Family Foundation, Inc., address: 3333 Piedmont Rd NE,
+    Ste 2000, Atlanta, GA 30305-1740, United States ("we"). This policy explains what data the
+    5tep mobile app ("the app") processes and what we do with it.</p>
+
+    <h3>1. The app works without an account</h3>
+    <p>Registration is optional. In "Continue without account" mode no data leaves the device
+    and we receive nothing about you.</p>
+
+    <h3>2. What we receive if you create an account</h3>
+    <ul>
+      <li>the login you chose and your password — the password is stored only as an
+      irreversible cryptographic hash (Argon2id); the original password is not available to
+      us;</li>
+      <li>the profile values you entered during onboarding: height, weight, daily step goal,
+      preferred walking time, streak counter;</li>
+      <li>the IP address of the request — processed at the moment of the request to rate
+      limit sign-in attempts and not stored in our database. It may appear in web server logs,
+      which are kept for no longer than 30 days.</li>
+    </ul>
+
+    <h3>3. What stays on your device only</h3>
+    <p>We neither receive nor store:</p>
+    <ul>
+      <li>your location and walk tracks. Location access is requested when you start a walk
+      and is used only during an active recording — to draw the route and calculate distance
+      and pace;</li>
+      <li>photo checkpoints taken along the route;</li>
+      <li>the walk summary card you choose to save to your photo library;</li>
+      <li>planned walks and the events the app creates in your calendar.</li>
+    </ul>
+    <p>Deleting the app removes all of this with it.</p>
+
+    <h3>4. Analytics</h3>
+    <p>The app uses the AppMetrica analytics service (Yandex LLC) for usage statistics: screen
+    opens and interface taps, app and OS version, an anonymous installation identifier.
+    Routes, photos, coordinates, login, height and weight are never sent to analytics. Service
+    terms: <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a>.</p>
+    <p>Advertising identifiers (IDFA) are not used in the current version and no tracking
+    prompt is shown.</p>
+
+    <h3>5. Sharing</h3>
+    <p>With no one except the analytics service above. We do not sell data, do not pass it to
+    data brokers and do not use it for profiling.</p>
+
+    <h3>6. Retention</h3>
+    <p>Account data is kept until you delete the account. After deletion the record and the
+    profile are erased from the database and cannot be restored.</p>
+
+    <h3>7. Deleting your data</h3>
+    <p>In the app: Settings → Delete account removes your login and profile from the server.
+    Settings → Delete data on this device erases walks, routes, photos and the plan. The two
+    actions are independent and each is confirmed separately.</p>
+    <p>You may also request information about the data we process, its correction or deletion
+    by writing to
+    <a href="mailto:info@grahamfamilyfoundationinc.org">info@grahamfamilyfoundationinc.org</a>.
+    We reply within 30 days.</p>
+
+    <h3>8. Security</h3>
+    <p>All communication with the server uses HTTPS. The session token is kept in the system
+    Keychain; the password is never stored on the device. Sign-in attempts are rate limited.</p>
+
+    <h3>9. Children</h3>
+    <p>The app is not intended for children under 13 and we do not knowingly collect their
+    data.</p>
+
+    <h3>10. Changes</h3>
+    <p>The current version is always available at this address. For material changes — such as
+    new permissions in a future release — we update the text and the effective date before
+    that version ships.</p>
+
+    <div class="pp-card">Privacy questions:
+      <a href="mailto:info@grahamfamilyfoundationinc.org">info@grahamfamilyfoundationinc.org</a>
+    </div>
+  </div>
+
+  <hr class="pp-rule">
+
+  <div id="pp-ru">
+    <span class="pp-eyebrow">Русский</span>
+    <h2>Как приложение 5tep обращается с вашими данными</h2>
+
+    <p>Оператор персональных данных — Graham Family Foundation, Inc., адрес: 3333 Piedmont Rd
+    NE, Ste 2000, Atlanta, GA 30305-1740, United States (далее — «мы»). Настоящая политика
+    объясняет, какие данные обрабатывает мобильное приложение 5tep (далее — «приложение») и
+    что мы с ними делаем.</p>
+
+    <h3>1. Приложение работает без аккаунта</h3>
+    <p>Регистрация не обязательна. В режиме «Продолжить без аккаунта» никакие данные не
+    покидают устройство, и мы не получаем о вас ничего.</p>
+
+    <h3>2. Какие данные мы получаем, если вы создали аккаунт</h3>
+    <ul>
+      <li>логин, который вы придумали, и пароль — пароль хранится только в виде необратимого
+      криптографического хеша (Argon2id), исходный пароль нам недоступен;</li>
+      <li>параметры профиля, указанные в онбординге: рост, вес, дневная цель шагов, удобное
+      время прогулки, счётчик серии дней;</li>
+      <li>IP-адрес запроса — обрабатывается в момент обращения, чтобы ограничить число
+      попыток входа, и не сохраняется в нашей базе данных. Он может попадать в служебные
+      журналы веб-сервера, которые хранятся не дольше 30 дней.</li>
+    </ul>
+    <p>Основание обработки — ваше согласие, выраженное созданием аккаунта, и исполнение
+    соглашения об использовании приложения.</p>
+
+    <h3>3. Какие данные остаются только на вашем устройстве</h3>
+    <p>Эти данные мы не получаем и не храним:</p>
+    <ul>
+      <li>геопозиция и треки прогулок. Доступ к геопозиции запрашивается в момент запуска
+      прогулки и используется только во время активной записи — для отрисовки маршрута,
+      расчёта дистанции и темпа;</li>
+      <li>фотографии-чекпоинты, снятые камерой на маршруте;</li>
+      <li>карточка итога прогулки, которую вы сохраняете в галерею по собственному нажатию;</li>
+      <li>запланированные прогулки и события, которые приложение создаёт в вашем календаре.</li>
+    </ul>
+    <p>Удаление приложения удаляет все эти данные вместе с ним.</p>
+
+    <h3>4. Аналитика</h3>
+    <p>Приложение использует сервис аналитики AppMetrica (ООО «Яндекс») для статистики
+    использования: факт открытия экрана и нажатия на элементы интерфейса, версия приложения и
+    операционной системы, обезличенный идентификатор установки. В аналитику не передаются
+    маршруты, фотографии, координаты, логин, рост и вес. Условия обработки на стороне сервиса:
+    <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a>.</p>
+    <p>Рекламные идентификаторы (IDFA) в текущей версии приложения не используются, запрос на
+    отслеживание не показывается.</p>
+
+    <h3>5. Кому мы передаём данные</h3>
+    <p>Никому, кроме указанного выше сервиса аналитики. Мы не продаём данные, не передаём их
+    рекламным брокерам и не используем для профилирования.</p>
+
+    <h3>6. Сколько мы храним данные</h3>
+    <p>Данные аккаунта — до момента его удаления. После удаления аккаунта запись и профиль
+    стираются из базы данных без возможности восстановления.</p>
+
+    <h3>7. Как удалить свои данные</h3>
+    <p>В приложении: «Настройки» → «Удалить аккаунт» — удаляет логин и профиль с сервера.
+    «Настройки» → «Удалить данные на устройстве» — стирает прогулки, маршруты, фотографии и
+    план. Действия независимы, каждое подтверждается отдельно.</p>
+    <p>Также вы вправе запросить сведения об обрабатываемых данных, их исправление или
+    удаление, написав на
+    <a href="mailto:info@grahamfamilyfoundationinc.org">info@grahamfamilyfoundationinc.org</a>.
+    Ответ — в течение 30 дней.</p>
+
+    <h3>8. Защита данных</h3>
+    <p>Обмен с сервером идёт только по HTTPS. Токен сессии хранится в системном хранилище
+    Keychain, пароль на устройстве не сохраняется. Число попыток входа ограничено.</p>
+
+    <h3>9. Дети</h3>
+    <p>Приложение не предназначено для детей младше 13 лет, и мы сознательно не собираем их
+    данные.</p>
+
+    <h3>10. Изменения политики</h3>
+    <p>Актуальная редакция всегда доступна по этому адресу. При существенных изменениях —
+    например при появлении новых разрешений в очередной версии приложения — мы обновляем текст
+    и дату вступления в силу до выпуска версии.</p>
+
+    <div class="pp-card">Вопросы о персональных данных:
+      <a href="mailto:info@grahamfamilyfoundationinc.org">info@grahamfamilyfoundationinc.org</a>
+    </div>
+  </div>
+</div>
