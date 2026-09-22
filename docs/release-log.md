@@ -13,29 +13,33 @@
 Результат Review указывается как `approved` или `rejected` с номером пункта App Review
 Guidelines; при повторной отправке добавляется отдельная строка с новым номером сборки.
 
-## Наполнение Info.plist по релизам
+## Перечень разрешений и план функций за ними
 
-Ключ разрешения и фоновый режим появляются в `Demo/Info.plist` того релиза, в котором
-начинает работать стоящая за ними функция, и дальше остаются. К 4.0.0 в файле весь перечень
-ТЗ — 11 разрешений и 4 фоновых режима.
+`Demo/Info.plist` с релиза 1.0.0 содержит весь перечень ТЗ — 11 разрешений и 4 фоновых
+режима, плюс `NSCalendarsFullAccessUsageDescription` для iOS 17+. Пункт 10 ТЗ:
+«Сокращение данного перечня не допускается», ключи демо-проекта «не подлежат удалению».
+Разносить ключи по релизам нельзя: передаётся сборка с полным набором.
 
-Причина: App Review 2.5.4 — объявленный фоновый режим без использующей его функции и
-Usage Description без вызова разрешения читаются ревьюером как незавершённое приложение.
-Формулировки не теряются: EN и RU для каждого ключа хранятся в `app.json`, поле
-`capabilities[].usage_description`, и переносятся в `Info.plist` в свой релиз.
+Тот же пункт требует, чтобы за ключом стояла работающая функция — «неиспользуемые
+разрешения не должны добавляться формально "на будущее"». Поэтому по релизам разносится
+не ключ, а функция за ним.
 
-| Релиз | Добавляется в Info.plist |
+| Релиз | Функция, закрывающая ключ |
 |---|---|
-| 1.0.0 | `NSLocationWhenInUseUsageDescription`, `NSCameraUsageDescription`, `NSPhotoLibraryAddUsageDescription`, `NSCalendarsUsageDescription`, `NSCalendarsFullAccessUsageDescription` |
-| 2.0.0 | `NSMicrophoneUsageDescription`, `NSSpeechRecognitionUsageDescription`, `UIBackgroundModes: fetch` |
-| 3.0.0 | `NSFaceIDUsageDescription`, `NSLocationAlwaysAndWhenInUseUsageDescription`, `UIBackgroundModes: audio` |
-| 4.0.0 | `NSContactsUsageDescription`, `NSBluetoothAlwaysUsageDescription`, `NSUserTrackingUsageDescription`, `UIBackgroundModes: remote-notification, voip` |
+| 1.0.0 | Запись маршрута (`NSLocationWhenInUseUsageDescription`), фото-чекпоинты (`NSCameraUsageDescription`), карточка итога в галерею (`NSPhotoLibraryAddUsageDescription`), план в календаре (`NSCalendarsUsageDescription`), фоновое звуковое сопровождение прогулки (`audio`, `voip`), голосовая заметка (`NSMicrophoneUsageDescription`) |
+| 2.0.0 | Расшифровка голосовых заметок (`NSSpeechRecognitionUsageDescription`), догрузка плана в фоне (`fetch`), пуш-уведомления о запланированной прогулке (`remote-notification`) |
+| 3.0.0 | Замок дневника по Face ID (`NSFaceIDUsageDescription`), автостарт прогулки при выходе из дома (`NSLocationAlwaysAndWhenInUseUsageDescription`) |
+| 4.0.0 | Приглашение в совместный челлендж (`NSContactsUsageDescription`), пульсометр и датчик шагов (`NSBluetoothAlwaysUsageDescription`), атрибуция установки (`NSUserTrackingUsageDescription`) |
+
+До релиза, закрывающего ключ, разрешение объявлено, но приложение его не запрашивает.
+Это расхождение с формулировкой пункта 10 и риск App Review 2.5.4; вынесено заказчику
+отдельным письмом вместе с вопросами по `NSMotionUsageDescription` и календарю iOS 17+.
 
 Сверка файла с фактическим кодом релиза:
 
 ```
-python3 capability_audit.py app.json --plist ../5tep-ios/Demo/Info.plist \
-        --ios ../5tep-ios --release <версия>
+python3 ~/.claude/skills/doll-concept/tools/capability_audit.py app.json \
+        --plist ../5tep-ios/Demo/Info.plist --ios ../5tep-ios
 ```
 
 Вместе с новым разрешением обновляется политика конфиденциальности (`docs/privacy-policy.md`
