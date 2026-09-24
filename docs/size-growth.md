@@ -38,8 +38,8 @@
 прибавляет к сборке доли мегабайта.
 
 Распознавание на устройстве моделей в бандле не требует и веса не даёт: сцена снимка и силуэт
-на карточке — нативный `Vision` (`VNClassifyImageRequest`, `VNGeneratePersonSegmentationRequest`),
-активность — `CMMotionActivityManager`. Подложку карты рисует системный `MapKit`: он работает
+на карточке — нативный `Vision` (`VNClassifyImageRequest`, `VNGeneratePersonSegmentationRequest`).
+Подложку карты рисует системный `MapKit`: он работает
 в любой точке мира, не требует ключей и веса не добавляет.
 
 ## 3. За счёт чего набирается объём в App Store

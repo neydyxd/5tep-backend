@@ -273,7 +273,7 @@
     },
     {
       "key": "NSCalendarsUsageDescription",
-      "feature": "запланированная прогулка добавляется в системный календарь с учётом уже занятых слотов",
+      "feature": "запланированная прогулка добавляется в системный календарь: на iOS 16 — с учётом занятых слотов, на iOS 17+ — через системный редактор события без запроса доступа",
       "screen": "plan",
       "release": "1.0.0",
       "usage_description": {
@@ -282,9 +282,10 @@
       },
       "api_evidence": [
         "EKEventStore",
-        "EKEvent"
+        "EKEvent",
+        "EKEventEditViewController"
       ],
-      "review_path": "План → выбрать день → Запланировать прогулку → предложенный свободный слот → Добавить в календарь → событие видно в приложении Календарь"
+      "review_path": "План → Запланировать прогулку → слот → Добавить в календарь → iOS 16: запрос доступа и событие в Календаре; iOS 17+: системный редактор события → Добавить"
     },
     {
       "key": "NSMicrophoneUsageDescription",
@@ -348,19 +349,18 @@
     },
     {
       "key": "audio",
-      "feature": "голосовые подсказки по темпу и дистанции продолжаются при заблокированном экране и управляются из Control Center",
+      "feature": "фоновый звук прогулки продолжает играть при заблокированном экране; с 3.0 к нему добавляются голосовые подсказки по темпу с управлением из Control Center",
       "screen": "walk-live",
-      "release": "3.0.0",
+      "release": "1.0.0",
       "usage_description": {
         "en": "5tep keeps pace and distance cues playing when the screen is locked, so you can follow them with the phone in your pocket.",
         "ru": "5tep продолжает произносить подсказки по темпу и дистанции при заблокированном экране, чтобы слушать их с телефоном в кармане."
       },
       "api_evidence": [
         "AVAudioSession",
-        "MPNowPlayingInfoCenter",
-        "AVPlayer"
+        "AVAudioSessionCategoryPlayback"
       ],
-      "review_path": "Прогулка → Включить голосовые подсказки → заблокировать экран → звук идёт, управление доступно из Control Center"
+      "review_path": "Сегодня → Начать прогулку → Turn on background sound → заблокировать экран: звук продолжается"
     },
     {
       "key": "NSLocationAlwaysAndWhenInUseUsageDescription",
@@ -699,21 +699,5 @@
     "data_pipeline": "рельеф — из открытых клеток SRTM, маршруты — из открытых дампов OpenStreetMap нашим конвейером. Ключа и стороннего сервера нет",
     "on_device_recognition": "распознавание сцены снимка и силуэта на карточке — нативный Vision (VNClassifyImageRequest, VNGeneratePersonSegmentationRequest), активность — CMMotionActivityManager: моделей в бандле нет и вес от них не зависит",
     "forbidden_models": "AGPL в бандл не попадает: Ultralytics YOLOv5 и YOLOv8 несовместимы с передачей закрытого продукта заказчику"
-  },
-  "required_plist_keys": [
-    {
-      "key": "NSMotionUsageDescription",
-      "reason": "CMPedometer без этого ключа не отдаёт шаги: iOS отклоняет запрос к счётчику движения. Ключ не входит в перечень ТЗ и не заменяет ни одну из 15 капабилити — он технически обязателен для главного экрана.",
-      "screen": "home",
-      "en": "5tep reads the step counter to show your progress towards the daily goal.",
-      "ru": "5tep читает счётчик шагов, чтобы показывать прогресс к дневной цели."
-    },
-    {
-      "key": "NSCalendarsFullAccessUsageDescription",
-      "reason": "С iOS 17 чтение занятости и создание события требуют ключа полного доступа; NSCalendarsUsageDescription из перечня ТЗ остаётся для iOS 16. Текст совпадает дословно, разрешение то же самое.",
-      "screen": "plan",
-      "en": "5tep reads your calendar to suggest free time for a walk and adds the walk you scheduled as a calendar event so it does not clash with your meetings.",
-      "ru": "5tep читает календарь, чтобы предложить свободное время для прогулки, и добавляет запланированную прогулку событием — так она не пересечётся со встречами."
-    }
-  ]
+  }
 }
